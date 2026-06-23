@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 import { env } from '@/env';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = env.siteUrl ?? 'http://localhost:3000';
+  const base = env.siteUrl;
   return [
     {
       url: base,
