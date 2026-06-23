@@ -1,3 +1,5 @@
+import { GithubIcon, TwitterIcon } from '@/components/icons/social';
+
 export const faqs = [
   {
     q: 'Can the server read my pastes?',
@@ -94,4 +96,15 @@ export const features = [
     title: 'Zero-knowledge by design',
     desc: 'The server cannot read your pastes. It only stores encrypted blobs and serves them back on request.',
   },
+];
+
+export const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
+];
+
+export const socialLinks = [
+  { label: 'GitHub', href: 'https://github.com/elphizu/nobins', icon: GithubIcon },
+  { label: 'Twitter', href: 'https://twitter.com/elphizu', icon: TwitterIcon },
 ];
