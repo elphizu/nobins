@@ -41,8 +41,8 @@ export function ShareDialog({ open, onClose, shareUrl, deleteUrl }: ShareDialogP
           node.innerHTML = '';
 
           const qrCode = new QRCodeStyling({
-            width: 150,
-            height: 150,
+            width: 200,
+            height: 200,
             type: 'svg',
             data: shareUrl,
             dotsOptions: { color: 'var(--foreground)', type: 'dots' },
@@ -120,7 +120,7 @@ export function ShareDialog({ open, onClose, shareUrl, deleteUrl }: ShareDialogP
                 />
               </svg>
 
-              <div className="relative p-2">
+              <div className="relative p-1">
                 <div className="absolute -inset-0.75 border border-ring c" />
 
                 {[
@@ -135,7 +135,7 @@ export function ShareDialog({ open, onClose, shareUrl, deleteUrl }: ShareDialogP
                   />
                 ))}
 
-                <div ref={renderQrCode} className="relative z-10 h-37.5 w-37.5" />
+                <div ref={renderQrCode} className="relative z-10 h-50 w-50" />
               </div>
             </div>
 
