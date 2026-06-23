@@ -51,13 +51,13 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-5xl px-4 pb-24">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f) => (
+          {features.map((feature, i) => (
             <div
-              key={f.title}
+              key={i}
               className="rounded-lg border border-border bg-card p-6 text-card-foreground"
             >
-              <h3 className="font-heading font-medium text-foreground">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
+              <h3 className="font-heading font-medium text-foreground">{feature.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
             </div>
           ))}
         </div>

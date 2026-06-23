@@ -19,14 +19,14 @@ export default function AboutPage() {
 
       <h2 className="mt-12 font-heading text-xl font-medium text-foreground">The flow</h2>
       <div className="mt-6 flex flex-col gap-4">
-        {steps.map((s) => (
-          <div key={s.step} className="flex gap-4 rounded-lg border border-border bg-card p-4">
+        {steps.map((step, i) => (
+          <div key={i} className="flex gap-4 rounded-lg border border-border bg-card p-4">
             <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
-              {s.step}
+              {step.step}
             </div>
             <div>
-              <h3 className="font-medium text-foreground">{s.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+              <h3 className="font-medium text-foreground">{step.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
             </div>
           </div>
         ))}
@@ -34,11 +34,11 @@ export default function AboutPage() {
 
       <h2 className="mt-12 font-heading text-xl font-medium text-foreground">Security modes</h2>
       <div className="mt-6 flex flex-col gap-4">
-        {modes.map((m) => (
-          <div key={m.name} className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-medium text-foreground">{m.name}</h3>
-            <p className="mt-1 font-mono text-xs text-muted-foreground">{m.crypto}</p>
-            <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
+        {modes.map((mode, i) => (
+          <div key={i} className="rounded-lg border border-border bg-card p-4">
+            <h3 className="font-medium text-foreground">{mode.name}</h3>
+            <p className="mt-1 font-mono text-xs text-muted-foreground">{mode.crypto}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{mode.desc}</p>
           </div>
         ))}
       </div>

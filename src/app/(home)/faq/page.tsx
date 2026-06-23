@@ -13,10 +13,10 @@ export default function FAQPage() {
         Frequently asked questions
       </h1>
       <div className="mt-8 flex flex-col gap-4">
-        {faqs.map((item) => (
-          <div key={item.q} className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-medium text-foreground">{item.q}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{item.a}</p>
+        {faqs.map((item, i) => (
+          <div key={i} className="rounded-lg border border-border bg-card p-4">
+            <h3 className="font-medium text-foreground">{item.question}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{item.answer}</p>
           </div>
         ))}
       </div>
