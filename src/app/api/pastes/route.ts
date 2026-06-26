@@ -1,10 +1,9 @@
-import { z } from 'zod';
-
-import { createPaste } from '@/app/features/pastes/paste.service';
-import { createPasteSchema } from '@/app/features/pastes/paste.schema';
+import { createPasteSchema } from '@/pastes/paste.schema';
+import { createPaste } from '@/pastes/paste.service';
 
 export async function POST(request: Request) {
   let body: unknown;
+
   try {
     body = await request.json();
   } catch {
@@ -14,9 +13,10 @@ export async function POST(request: Request) {
   const parsed = createPasteSchema.safeParse(body);
 
   if (!parsed.success) {
-    return Response.json({ error: z.treeifyError(parsed.error) }, { status: 400 });
+    return Response.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const paste = await createPaste(parsed.data);
-  return Response.json(paste, { status: 201 });
+  const result = await createPaste(parsed.data);
+
+  return Response.json(result, { status: 201 });
 }

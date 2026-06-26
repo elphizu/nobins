@@ -1,12 +1,10 @@
-import { getPaste, deletePaste } from '@/app/features/pastes/paste.service';
+import { deletePaste, getPaste } from '@/pastes/paste.service';
 
-export async function GET(
-  _request: Request,
-  { params }: { params: Promise<{ pasteId: string }> },
-) {
+export async function GET(request: Request, { params }: { params: Promise<{ pasteId: string }> }) {
   const { pasteId } = await params;
+  const burnKey = new URL(request.url).searchParams.get('burnKey');
 
-  const paste = await getPaste(pasteId);
+  const paste = await getPaste(pasteId, burnKey);
 
   if (!paste) {
     return Response.json({ error: 'Not found' }, { status: 404 });
@@ -16,12 +14,17 @@ export async function GET(
 }
 
 export async function DELETE(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ pasteId: string }> },
 ) {
   const { pasteId } = await params;
+  const token = new URL(request.url).searchParams.get('token');
 
-  const deleted = await deletePaste(pasteId);
+  if (!token) {
+    return Response.json({ error: 'Missing token' }, { status: 400 });
+  }
+
+  const deleted = await deletePaste(pasteId, token);
 
   if (!deleted) {
     return Response.json({ error: 'Not found' }, { status: 404 });
