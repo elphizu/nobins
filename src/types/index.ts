@@ -26,8 +26,10 @@ export interface StepItem {
   desc: string;
 }
 
+export type ModeType = 'classical' | 'quantum';
+
 export interface ModeItem {
-  name: 'classical' | 'quantum';
+  name: ModeType;
   crypto: string;
   desc: string;
 }
