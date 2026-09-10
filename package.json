@@ -30,7 +30,7 @@
     "@codemirror/lang-python": "^6.2.1",
     "@codemirror/language": "^6.12.4",
     "@codemirror/search": "^6.7.1",
-    "@codemirror/state": "^6.6.0",
+    "@codemirror/state": "^6.7.4",
     "@codemirror/view": "^6.43.1",
     "@noble/post-quantum": "^0.6.1",
     "class-variance-authority": "^0.7.1",
