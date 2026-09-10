@@ -26,7 +26,7 @@ const patternDots = Array.from({ length: 520 }, (_, i) => {
     top: `${row * 8}px`,
     opacity: 0.05 + (hash % 9) * 0.025,
   };
-}).filter((dot): dot is { id: number; left: string; top: string; opacity: number } => Boolean(dot));
+}).filter((dot) => dot !== null);
 
 const cowSayLines = [
   ' ___________________',

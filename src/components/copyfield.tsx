@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import type { ElementType } from 'react';
+import type { ComponentType } from 'react';
 
 import { Check, Copy } from 'lucide-react';
 
 interface CopyFieldProps {
   label: string;
   value: string;
-  icon?: ElementType;
+  icon?: ComponentType<{ className?: string }>;
 }
 
 export function CopyField({ label, value, icon: Icon }: CopyFieldProps) {

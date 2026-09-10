@@ -35,7 +35,7 @@ const langExtensions = {
   json,
   markdown,
   python,
-} as const satisfies Record<string, () => LanguageSupport>;
+} as const;
 
 interface LanguageItem {
   label: string;
@@ -48,7 +48,7 @@ export default function NewPastePage() {
 
   const [extLang, setExtLang] = useState<LanguageItem | null>(null);
   const [mode, setMode] = useState<ModeType>('open');
-  const [ttl, setTtl] = useState<ExpirationValue | null>(3600);
+  const [ttl, setTtl] = useState<ExpirationValue>(3600);
   const [burn, setBurn] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const [lineCount, setLineCount] = useState(0);
@@ -91,7 +91,7 @@ export default function NewPastePage() {
       const expiresAt =
         ttl === 0
           ? new Date(Date.now() + 100 * 365 * 24 * 60 * 60 * 1000)
-          : new Date(Date.now() + (ttl ?? 3600) * 1000);
+          : new Date(Date.now() + ttl * 1000);
 
       const res = await fetch('/api/pastes', {
         method: 'POST',
@@ -235,7 +235,7 @@ export default function NewPastePage() {
             {modes.map((m) => (
               <button
                 key={m.name}
-                onClick={() => setMode(m.name as typeof mode)}
+                onClick={() => setMode(m.name)}
                 className={`px-2 py-0.5 font-mono text-xs transition-colors ${
                   mode === m.name
                     ? 'bg-primary text-primary-foreground'
